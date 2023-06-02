@@ -35,7 +35,8 @@ SELECT * FROM Perguntas;
 
 CREATE TABLE Usuarios(
 Usuario VARCHAR(20) UNIQUE PRIMARY KEY,
-Senha VARCHAR(64) NOT NULL
+Senha VARCHAR(64) NOT NULL,
+Adm BOOl NOT NULL
 );
 
 CREATE TABLE Pontuacoes(
@@ -62,5 +63,8 @@ SELECT * FROM Pontuacoes;
 
 -- drop table usuarios;
 -- drop table pontuacoes;
+
+-- select * from Usuarios;
+-- SELECT Adm FROM Usuarios WHERE Usuario = "usuario";
 
 -- SELECT COUNT(*) FROM Usuarios WHERE Usuario = "usuario" AND Senha = SHA2("senha", 256);

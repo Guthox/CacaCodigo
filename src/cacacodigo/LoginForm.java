@@ -247,8 +247,14 @@ public class LoginForm extends javax.swing.JFrame{
                             // Cadastra o usuario
                             String usuario = campoUser.getText();
                             String senha = campoSenha.getText();
+                            boolean tipo = false;
+                            if (usuario.length() >= 4){
+                                if (usuario.substring(0,4).equals("[CP]")){
+                                    tipo = true;
+                                }
+                            }
                             
-                            if (bd.cadastrarUsuario(usuario, senha)){
+                            if (bd.cadastrarUsuario(usuario, senha, tipo)){
                                 bd.cadastrarPontuacao(usuario, 0, "99:99");
                                 JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso");
                                 lbConfirmarSenha.setVisible(false);

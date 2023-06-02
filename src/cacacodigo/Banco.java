@@ -59,11 +59,12 @@ public class Banco {
     // Cadastrar Usuario ***********************************************************************
     
     // Inserir usuario no banco de dados ******************************************
-    public boolean cadastrarUsuario(String usuario, String senha){
-        String sqlInsert = "INSERT INTO Usuarios (Usuario, Senha) VALUES (?, SHA2(?, 256))";
+    public boolean cadastrarUsuario(String usuario, String senha, boolean admin){
+        String sqlInsert = "INSERT INTO Usuarios (Usuario, Senha, Adm) VALUES (?, SHA2(?, 256), ?)";
         try(PreparedStatement stm = conn.prepareStatement(sqlInsert)){
             stm.setString(1, usuario);
             stm.setString(2, senha);
+            stm.setBoolean(3, admin);
             stm.execute();
             return true;
         }
@@ -236,6 +237,29 @@ public class Banco {
     
     // *******************************************************************************
         
+    // verifica se o usuario e adm.
+    public boolean validarAdmin(String usuario){
+                String comando = "SELECT Adm FROM Usuarios WHERE Usuario = ?";
+    
+       try {
+            PreparedStatement stmt = getConn().prepareStatement(comando); 
+            stmt.setString(1, usuario);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    boolean tipo = rs.getBoolean(1);
+                    return tipo; // Retorna true se for adm
+                }
+            }
+        } catch (Exception e) {
+           return false;
+        }
+       return false;
+        
+    }
+    
+    // *******************************************************************************
+    
     public void setConn(Connection conn) {
         this.conn = conn;
     }

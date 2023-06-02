@@ -6,6 +6,7 @@ package cacacodigo;
 
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -98,8 +99,19 @@ public class TelaEscolha extends javax.swing.JFrame {
     }//GEN-LAST:event_btplacarActionPerformed
 
     private void configbotMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_configbotMouseClicked
-        dispose();
-        Configadm cfg = new Configadm(usuario);
+        Banco bd = new Banco(ConnFactory.conectar());
+        boolean adm = bd.validarAdmin(usuario);
+        ConnFactory.desconectar(bd.getConn());
+        
+        if (adm){
+            dispose();
+            Configadm cfg = new Configadm(usuario);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Você não tem permissão de administrador para usar este recurso.");
+        }
+        
+        
     }//GEN-LAST:event_configbotMouseClicked
 
     /**
