@@ -17,7 +17,8 @@ public class CacaCodigo {
 
         LoginForm login = new LoginForm();
         //Banco b = new Banco(ConnFactory.conectar());
-        //TelaScore s = new TelaScore(b.gerarPlacar());
+        //TelaScore s = new TelaScore(b.gerarPlacar(), "usuario");
+        //TelaEscolha te = new TelaEscolha("usuario");
         
     }
     

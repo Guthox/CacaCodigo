@@ -4,6 +4,7 @@ import  java.sql.Connection;
 import  java.sql.PreparedStatement;
 import  java.sql.ResultSet;
 import  java.sql.Statement;
+import  java.util.ArrayList;
 
 public class Banco {
     
@@ -57,7 +58,7 @@ public class Banco {
     
     // Cadastrar Usuario ***********************************************************************
     
-    // Inserir Pergunta e resposta no banco de dados ******************************************
+    // Inserir usuario no banco de dados ******************************************
     public boolean cadastrarUsuario(String usuario, String senha){
         String sqlInsert = "INSERT INTO Usuarios (Usuario, Senha) VALUES (?, SHA2(?, 256))";
         try(PreparedStatement stm = conn.prepareStatement(sqlInsert)){
@@ -207,6 +208,34 @@ public class Banco {
     
     // *******************************************************************************
     
+    public String[][] pegarPerguntasTodas(){
+        String comando = "SELECT * FROM Perguntas";
+        
+        ArrayList<String> perguntas = new ArrayList<>();
+        ArrayList<String> respostas = new ArrayList<>();
+    
+        try{
+            stm = getConn().createStatement();
+            ResultSet result = stm.executeQuery(comando);
+            while (result.next()){
+                perguntas.add(result.getString(2)); // Perguntas
+                respostas.add(result.getString(3)); // Respostas
+            }
+            String resultado[][] = new String[2][perguntas.size()];
+            for (int i = 0; i < perguntas.size(); i++){
+                resultado[0][i] = perguntas.get(i);
+                resultado[1][i] = respostas.get(i);
+            }
+            return resultado;
+        }
+        catch (Exception erro){
+            return null;
+        }
+
+    }
+    
+    // *******************************************************************************
+        
     public void setConn(Connection conn) {
         this.conn = conn;
     }

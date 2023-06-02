@@ -276,7 +276,7 @@ public class LoginForm extends javax.swing.JFrame{
                 // Inicia o jogo
                 ConnFactory.desconectar(bd.getConn());
                 dispose();
-                Janela j = new Janela(campoUser.getText());
+                TelaEscolha te = new TelaEscolha(campoUser.getText());
                 
             }
             else{

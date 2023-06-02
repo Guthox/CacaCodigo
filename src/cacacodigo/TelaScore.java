@@ -85,6 +85,7 @@ public class TelaScore extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btMenu = new javax.swing.JToggleButton();
         jogarNovamente = new javax.swing.JToggleButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -95,6 +96,15 @@ public class TelaScore extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btMenu.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btMenu.setText("Menu");
+        btMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btMenuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, 90, 30));
 
         jogarNovamente.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jogarNovamente.setText("Jogar novamente");
@@ -160,6 +170,11 @@ public class TelaScore extends javax.swing.JFrame {
         Janela j = new Janela(getUsuario());
     }//GEN-LAST:event_jogarNovamenteActionPerformed
 
+    private void btMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btMenuActionPerformed
+        dispose();
+        TelaEscolha tl = new TelaEscolha(usuario);
+    }//GEN-LAST:event_btMenuActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -167,7 +182,7 @@ public class TelaScore extends javax.swing.JFrame {
     
     private void som(){
         try{
-            File som = new File("lalalalaaaaa.wav");
+            File som = new File("src\\wav\\lalalalaaaaa.wav");
             Clip c = AudioSystem.getClip();
             c.open(AudioSystem.getAudioInputStream(som));
             c.start();
@@ -214,6 +229,7 @@ public class TelaScore extends javax.swing.JFrame {
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
