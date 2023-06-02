@@ -182,7 +182,7 @@ public class TelaScore extends javax.swing.JFrame {
     
     private void som(){
         try{
-            File som = new File("src\\wav\\lalalalaaaaa.wav");
+            File som = new File("src\\cacacodigo\\lalalalaaaaa.wav");
             Clip c = AudioSystem.getClip();
             c.open(AudioSystem.getAudioInputStream(som));
             c.start();
