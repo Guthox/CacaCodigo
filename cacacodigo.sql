@@ -15,8 +15,8 @@ INSERT INTO Perguntas (Pergunta, Resposta) VALUES
 ("Como se declara uma variavel que possua um valor decimal com menos precisão?", "FLOAT"),
 ("Como se declara uma variavel que possua um valor decimal com mais precisão?", "DOUBLE"),
 ("Qual é a excessão de uma estrutura de decisão?", "ELSE"),
-("Qual é o sistema de numeração composto por apenas dois dígitos, utilizado na computação?", "BINARIO"),
-("Qual a palavra que se usa quando se quer representar uma heraça em Java?", "EXTENDS"),
+("Qual é o sistema de numeração composto por apenas dois símbolos, utilizado na computação?", "BINARIO"),
+("Qual a palavra que se usa quando se quer representar uma herança em Java?", "EXTENDS"),
 ("Na programação, qual o nome dado para estruturas de repetição?", "LOOP"),
 ("Qual o nome da restrição que impede repetições em banco de dados?", "UNIQUE"),
 ("Qual é o método utilizado para executar uma consulta em um banco de dados SQL?", "SELECT"),
@@ -68,3 +68,5 @@ SELECT * FROM Pontuacoes;
 -- SELECT Adm FROM Usuarios WHERE Usuario = "usuario";
 
 -- SELECT COUNT(*) FROM Usuarios WHERE Usuario = "usuario" AND Senha = SHA2("senha", 256);
+
+-- drop database bdCacaCodigo;
